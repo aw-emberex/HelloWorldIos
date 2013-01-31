@@ -11,8 +11,52 @@
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lva-u4-TsK">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter something here yo" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8w-VY-ONU">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="odX-Ia-ttW"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lT6-nv-zG9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="EqS-f6-xDX"/>
+                                    <constraint firstAttribute="width" constant="135" id="Iqd-qk-C54"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeGreeting:" destination="2" eventType="touchUpInside" id="GkL-WI-cG2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.30191489664417892" green="0.67687540854020201" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lva-u4-TsK" firstAttribute="top" secondItem="3" secondAttribute="top" constant="13" id="CmC-h1-GG5"/>
+                            <constraint firstItem="y8w-VY-ONU" firstAttribute="top" secondItem="lva-u4-TsK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EfU-Ln-JZ4"/>
+                            <constraint firstAttribute="trailing" secondItem="y8w-VY-ONU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="F8z-5z-rUj"/>
+                            <constraint firstItem="lT6-nv-zG9" firstAttribute="top" secondItem="y8w-VY-ONU" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Net-KU-mZ6"/>
+                            <constraint firstItem="lT6-nv-zG9" firstAttribute="centerX" secondItem="y8w-VY-ONU" secondAttribute="centerX" type="default" id="h2V-ka-Gjz"/>
+                            <constraint firstItem="y8w-VY-ONU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="imb-kT-tEw"/>
+                            <constraint firstItem="lva-u4-TsK" firstAttribute="centerX" secondItem="y8w-VY-ONU" secondAttribute="centerX" type="default" id="o3R-CR-U5X"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="lva-u4-TsK" id="p3R-2P-dg4"/>
+                        <outlet property="textField" destination="y8w-VY-ONU" id="xS9-Tf-HxC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -21,6 +65,14 @@
     <classes>
         <class className="HelloWorldViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HelloWorldViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeGreeting:"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
