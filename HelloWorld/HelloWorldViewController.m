@@ -37,4 +37,15 @@
     NSString *greeting = [[NSString alloc] initWithFormat:@"Hello %@!", nameString];
     [self.label setText:greeting];
 }
+
+-(BOOL) textFieldShouldReturn:(UITextField*)theTextField {
+    if (theTextField == self.textField) {
+        self.label.text = @"ok";
+        [theTextField resignFirstResponder];
+    } else {
+        self.label.text = @"!111";        
+    }
+    return YES;
+}
+
 @end
